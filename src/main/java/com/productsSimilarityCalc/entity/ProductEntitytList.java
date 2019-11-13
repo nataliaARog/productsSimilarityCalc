@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class ProducEntitytList {
+public class ProductEntitytList {
 
 	@JsonProperty("products")
 	private List<ProductEntity> poducts;
