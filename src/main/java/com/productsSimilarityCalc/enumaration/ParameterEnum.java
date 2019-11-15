@@ -5,7 +5,8 @@ import java.util.Optional;
 public enum ParameterEnum {	
 	
 	
-	EMPTY("");
+	EMPTY(""),
+	PRODUCTS("products");
 	
 	private String parametro;
 	

@@ -5,19 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import javax.validation.Valid;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.productsSimilarityCalc.entity.ProductEntity;
 import com.productsSimilarityCalc.entity.SimilarProductEntity;
+import com.productsSimilarityCalc.enumaration.ParameterEnum;
 import com.productsSimilarityCalc.mapper.ProductMapper;
 import com.productsSimilarityCalc.mapper.SimilarProductMapper;
 import com.productsSimilarityCalc.service.ProductService;
@@ -40,16 +40,19 @@ public class SimilarityCalcController implements Serializable {
 	private ProductService productService;
 	@Autowired
 	private SimilarityCalcService similarityCalcService;
+	@Autowired
+	private HttpSession session;
 	
+	@SuppressWarnings("unchecked")
 	@PostMapping(path = "/similarities", produces=MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<SimilarProductView>> calculateAndReturn(@RequestParam("id") int id,
-    																   @Valid @RequestBody List<ProductView> products) {	
+    public ResponseEntity<List<SimilarProductView>> calculateAndReturn(@RequestParam("id") int id) {	
 		List<SimilarProductView> similarProducts = null;
 		List<SimilarProductEntity> similarProductsEntity = null;
 		ProductEntity product = null;
 		List<ProductEntity> productsEntity = null;
 		
-		try {			
+		try {	
+			List<ProductView> products = (List<ProductView>) session.getAttribute(ParameterEnum.PRODUCTS.getParameter());
 			productsEntity = ProductMapper.mapToEntity(products);
 			product = productService.findProduct(id,productsEntity);
 			similarProductsEntity = similarityCalcService.defineSimilarProducts(product,productsEntity);

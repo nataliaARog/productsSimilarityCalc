@@ -1,0 +1,86 @@
+@charset "UTF-8";
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.input-product {
+	margin: 18px 0 0 300px;
+	width: 120px;
+	float:left;
+	display: inline-block;
+}
+
+.button-product {
+	margin: 18px 0 20px 18px;
+	width: 70px;
+	float:left;
+	display: inline-block;
+}
+
+.products-table {
+	width: 550px;	
+	margin-left: 200px;
+}
+
+.similarity-table {
+	width: 500px;	
+	margin: 50px 0 0 150px;
+}
+
+.column-id {
+	text-align: right;
+}
+
+.column-id-similarity {
+	width: 50px;
+	text-align: right;
+	padding-right: 15px;
+}
+
+.column-name {
+	width: 150px;
+	padding-left: 50px !important;
+}
+
+.column-similarity {
+	width: 50px;
+	text-align: right;
+	padding-right: 15px;
+}
+
+.modal-content {
+	margin: 5px 5px 5px 75px;
+}
+
+.column {
+	width: 10px !important;
+	padding: 0 !important;
+}
+
+.hidden-element {
+	display: none !important;
+}
+
+.subtitle-modal {
+	text-decoration: underline;
+	clear: both;
+	float: left;
+	padding: 2px;
+}
+
+.text-modal {
+	clear: both;
+	float: left;
+	padding: 2px;
+}
+
+#contentTwo .subtitle-modal {
+	margin-top: 25px;
+}
+
+#contentTwo .text-modal {
+	margin-bottom: 25px;
+}
+
+
