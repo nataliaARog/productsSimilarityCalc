@@ -1,9 +1,13 @@
 package com.productsSimilarityCalc.service;
 
-import com.productsSimilarityCalc.entity.ProductEntitytList;
+import java.util.List;
+
+import com.productsSimilarityCalc.entity.ProductEntity;
+import com.productsSimilarityCalc.entity.ProductEntityList;
 import com.productsSimilarityCalc.util.GenericException;
 
 public interface ProductService {
 
-	public ProductEntitytList findProducts() throws GenericException;
+	public ProductEntityList findProducts() throws GenericException;
+	public ProductEntity findProduct(int id,List<ProductEntity> productsList) throws GenericException;	
 }

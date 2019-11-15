@@ -18,10 +18,12 @@ public class Init extends SpringBootServletInitializer implements WebMvcConfigur
         SpringApplication.run(Init.class, args);
     }    
     
+	@Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
     }
-   
+
+    @Override
     public void addResourceHandlers(final ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
