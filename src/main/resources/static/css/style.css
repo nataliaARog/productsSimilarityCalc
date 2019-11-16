@@ -5,7 +5,9 @@ body {
 }
 
 h1 {
-	margin: 10px 0 0 300px;
+	margin: 10px 0 0 350px;
+	float: left;
+	clear: both;
 }
 
 th {
@@ -21,6 +23,8 @@ th {
 	width: 120px;
 	float:left;
 	display: inline-block;
+	float: left;
+	clear: left;
 }
 
 .button-product {
@@ -36,11 +40,13 @@ th {
 }
 
 .similarity-table {
-	width: 500px;	
-	margin: 50px 0 0 200px;
+	width: 600px;	
+	margin: 0px 0 0 200px;
 	border-top: none;
 	border-bottom: none;
 	padding: 15px;
+	float: left;
+	clear: both;
 }
 
 .column-id {
@@ -54,7 +60,7 @@ th {
 }
 
 .column-name {
-	width: 150px;
+	width: 200px;
 	padding-left: 15px;
 }
 
@@ -97,5 +103,17 @@ th {
 #contentTwo .text-modal {
 	margin-bottom: 25px;
 }
+#error {
+	font-weight: bold;
+	font-size: 20px;
+	color: #8B0000;
+	text-align: center;
+}
 
-
+.error-div {
+	background: #FF6347;
+	width: 80%;
+	height: 65px;
+	margin: 15px 0 0 100px; 
+	float: left;
+}

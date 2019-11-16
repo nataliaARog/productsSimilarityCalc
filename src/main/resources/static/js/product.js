@@ -47,8 +47,10 @@ $(document).ready(function() {
 			$(".dataTables_filter").remove();	
 			$(".empty-th").remove();					
 		},
-		error: function(err) {
-			
+		error: function(xhr) {
+			var msg= JSON.parse(xhr.responseText);
+			$("#error").text(msg);
+			$("#error").parent().removeClass("hidden-element");
 		}
 	});	
 	

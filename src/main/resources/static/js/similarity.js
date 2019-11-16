@@ -22,8 +22,10 @@ $(document).ready(function() {
 				$("#productTableContent").addClass("hidden-element");
 				$("#similarityTableContent").removeClass("hidden-element");
 			},
-			error: function(err) {
-				
+			error: function(xhr) {
+				var msg= JSON.parse(xhr.responseText);
+				$("#error").text(msg);
+				$("#error").parent().removeClass("hidden-element");
 			}
 		});
 	});
