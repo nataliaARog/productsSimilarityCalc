@@ -22,6 +22,7 @@ import com.productsSimilarityCalc.init.Init;
 import com.productsSimilarityCalc.service.ProductService;
 import com.productsSimilarityCalc.service.SimilarityCalcService;
 import com.productsSimilarityCalc.service.helper.ProductEntityMock;
+import com.productsSimilarityCalc.util.GenericException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Init.class)
@@ -45,6 +46,7 @@ public class SimilarityCalcControllerTest {
 		MockitoAnnotations.initMocks(this);
 		mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
 	}
+	
 	@Test
 	public void calculateAndReturnSuccessTest() throws Exception {
 		Mockito.when(session.getAttribute(ParameterEnum.PRODUCTS.getParameter())).thenReturn(ProductEntityMock.getProductsEntityMock());
@@ -53,12 +55,17 @@ public class SimilarityCalcControllerTest {
 		
 		mockMvc.perform(MockMvcRequestBuilders.post("/similarities")
 				                              .param("id", "7533"))
-				                              .andExpect(MockMvcResultMatchers.status().isOk())
-                                              .andReturn()
-                                              .getResponse()
-                                               .getContentAsString();
-		
-		
+				                              .andExpect(MockMvcResultMatchers.status().isOk());	
 	}
 
+	@Test
+	public void calculateAndReturnErrorTest() throws Exception {
+		Mockito.when(session.getAttribute(ParameterEnum.PRODUCTS.getParameter())).thenReturn(ProductEntityMock.getProductsEntityMock());
+		Mockito.when(productService.findProduct(7533,ProductEntityMock.getProductsEntityMock())).thenReturn(ProductEntityMock.getProductEntityMock());
+		Mockito.when(service.defineSimilarProducts(Mockito.any(), Mockito.anyList())).thenThrow(new GenericException("Error!"));
+		
+		mockMvc.perform(MockMvcRequestBuilders.post("/similarities")
+				                              .param("id", "7533"))
+				                              .andExpect(MockMvcResultMatchers.status().is4xxClientError());	
+	}
 }

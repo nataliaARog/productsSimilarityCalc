@@ -20,6 +20,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.productsSimilarityCalc.init.Init;
 import com.productsSimilarityCalc.service.ProductService;
 import com.productsSimilarityCalc.service.helper.ProductEntityMock;
+import com.productsSimilarityCalc.util.GenericException;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = Init.class)
@@ -49,10 +50,17 @@ public class ProductControllerTest {
 		Mockito.doNothing().when(session).setAttribute(Mockito.anyString(), Mockito.any());	
 		
 		mockMvc.perform(MockMvcRequestBuilders.get("/products"))
-				                              .andExpect(MockMvcResultMatchers.status().isOk())
-				                              .andReturn()
-				                              .getResponse()
-				                              .getContentAsString();		
+				                              .andExpect(MockMvcResultMatchers.status().isOk());		
+	}
+	
+	@Test
+	public void fetchProductsErrorTest() throws Exception {
+		Mockito.when(service.findProducts()).thenThrow(new GenericException("Error!"));
+		Mockito.when(service.checkCharacteristcs(Mockito.any(), Mockito.any())).thenReturn(ProductEntityMock.getProductEntityMock());
+		Mockito.doNothing().when(session).setAttribute(Mockito.anyString(), Mockito.any());	
+		
+		mockMvc.perform(MockMvcRequestBuilders.get("/products"))
+				                              .andExpect(MockMvcResultMatchers.status().is4xxClientError());		
 	}
 
 }
