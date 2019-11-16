@@ -1,5 +1,13 @@
 package com.productsSimilarityCalc.util;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * 
+ * Custom exception for the application
+ * It provides information or functionality that is not part of Java’s standard exceptions
+ *
+ */
 public class GenericException extends Exception {
 
 	/**

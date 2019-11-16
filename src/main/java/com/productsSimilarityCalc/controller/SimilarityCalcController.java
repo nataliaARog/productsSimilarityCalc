@@ -25,6 +25,15 @@ import com.productsSimilarityCalc.service.SimilarityCalcService;
 import com.productsSimilarityCalc.util.GenericException;
 import com.productsSimilarityCalc.view.SimilarProductView;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * 
+ * Restful Controller responsible calculate and define a list with three most similar products,
+ * finding the product the provided id
+ * OBS: Spring Boot + Spring MVC use as default the MVC design pattern
+ *
+ */
 @RestController
 public class SimilarityCalcController implements Serializable {
 
@@ -42,6 +51,15 @@ public class SimilarityCalcController implements Serializable {
 	@Autowired
 	private HttpSession session;
 	
+	/**
+	 * 
+	 * @return ResponseEntity<List<ProductView>>
+	 * 
+	 * This method communicates with service layer find in session the product by id provided by view,
+	 * calculate and define similar products, map the entities to a list with three most similar products,
+	 * sending to view 
+	 * 
+	 */
 	@SuppressWarnings("unchecked")
 	@PostMapping(path = "/similarities", produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<SimilarProductView>> calculateAndReturn(@RequestParam("id") int id) {	
@@ -54,7 +72,7 @@ public class SimilarityCalcController implements Serializable {
 			productsEntity = (List<ProductEntity>) session.getAttribute(ParameterEnum.PRODUCTS.getParameter());
 			product = productService.findProduct(id,productsEntity);
 			similarProductsEntity = similarityCalcService.defineSimilarProducts(product,productsEntity);
-			similarProducts = SimilarProductMapper.mapToView(similarProductsEntity);
+			similarProducts = SimilarProductMapper.getInstance().mapToView(similarProductsEntity);
 			
 		} catch (GenericException e) {
 			LOGGER.severe(e.getMessage());

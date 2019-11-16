@@ -4,6 +4,13 @@ import java.io.Serializable;
 
 import com.googlecode.jmapper.annotations.JMap;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * ProductView class that represent the product that is showing on screen
+ * ProductViewBase's subclass
+ * 
+ */
 public class ProductView extends ProductViewBase implements Serializable {
 
 	/**

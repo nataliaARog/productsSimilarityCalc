@@ -1,6 +1,6 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 
-<h1>Products List</h1>
+<h1>Find the three most similar products</h1>
 
 <input type="text" maxlength="4" class="input-product"></input>
 <input type="submit" value="search and calculate" class="button-product" />

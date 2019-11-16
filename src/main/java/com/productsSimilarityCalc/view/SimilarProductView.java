@@ -4,6 +4,14 @@ import java.io.Serializable;
 
 import com.googlecode.jmapper.annotations.JMap;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * SimilarProductView class that represent the similar product that is showing on screen
+ * It has the similarity of a product
+ * ProductViewBase's subclass
+ * 
+ */
 public class SimilarProductView extends ProductViewBase implements Serializable {
 
 	/**

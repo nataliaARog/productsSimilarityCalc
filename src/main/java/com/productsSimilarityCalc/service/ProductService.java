@@ -6,6 +6,16 @@ import com.productsSimilarityCalc.entity.ProductEntity;
 import com.productsSimilarityCalc.entity.ProductEntityList;
 import com.productsSimilarityCalc.util.GenericException;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * 
+ * Interface that provide the method's signature related to reading and checking ProductEntity
+ * Facade pattern applied
+ * Making easy to use which is good for maintenance and readability
+ * And it hides the complexities for the client (in this case, controllers)
+ *  
+ */
 public interface ProductService {
 
 	public ProductEntityList findProducts() throws GenericException;

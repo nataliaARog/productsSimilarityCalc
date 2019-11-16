@@ -16,8 +16,8 @@
 		<script type="text/javascript" src="/js/similarity.js"></script>
 	</head>
 	<body>	
-		<div class="error-div" class="hidden-element">
-			<p id="error" >Impossible to fetch products!</p>
+		<div class="error-div hidden-element">
+			<p id="error" />
 		</div>
 		<div id="productTableContent">
  			<product:product></product:product>

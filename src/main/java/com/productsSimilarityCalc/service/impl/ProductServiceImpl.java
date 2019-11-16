@@ -20,6 +20,14 @@ import com.productsSimilarityCalc.predicate.TagPredicate;
 import com.productsSimilarityCalc.service.ProductService;
 import com.productsSimilarityCalc.util.GenericException;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * 
+ * Implementation of Interface that provide the method's signature related to reading and checking ProductEntity
+ * It is a Service Layer of this application
+ * It contains the buisness logic and file reading
+ */
 @Service
 public class ProductServiceImpl implements ProductService {
 	

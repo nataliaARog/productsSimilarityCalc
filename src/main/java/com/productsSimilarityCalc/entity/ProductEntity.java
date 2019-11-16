@@ -6,6 +6,14 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.googlecode.jmapper.annotations.JMap;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * ProductEntity class that represent the Json object product 
+ * ProductBaseEntity's subclass
+ * It has Json properties (represent a json object)
+ * 
+ */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ProductEntity extends ProductBaseEntity implements Serializable {
 	

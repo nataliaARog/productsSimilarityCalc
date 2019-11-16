@@ -5,6 +5,14 @@ import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.googlecode.jmapper.annotations.JMap;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * Base class for ProductEntity and SimilarProductEntity
+ * It has Json properties (represent a json object)
+ * They have name and id in common
+ *
+ */
 public class ProductBaseEntity implements Serializable {
 
 	/**

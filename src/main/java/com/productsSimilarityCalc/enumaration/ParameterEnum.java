@@ -2,6 +2,14 @@ package com.productsSimilarityCalc.enumaration;
 
 import java.util.Optional;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * 
+ * Enum containing parameters used for all
+ * Enum has been chosen beacuse they are type-safety, immutable and use Single pattern as default
+ *
+ */
 public enum ParameterEnum {	
 	
 	

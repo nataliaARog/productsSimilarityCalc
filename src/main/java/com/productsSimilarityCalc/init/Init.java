@@ -9,6 +9,14 @@ import org.springframework.web.servlet.config.annotation.DefaultServletHandlerCo
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * 
+ * Initialization and configuration class for Spring Boot Application
+ * It has been configured resources folder for statics (CSS and Javascript/JQuery)
+ *
+ */
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan(basePackages={"com.productsSimilarityCalc.controller","com.productsSimilarityCalc.service","com.productsSimilarityCalc.serviceimpl"})

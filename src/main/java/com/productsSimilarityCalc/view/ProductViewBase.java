@@ -4,6 +4,13 @@ import java.io.Serializable;
 
 import com.googlecode.jmapper.annotations.JMap;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * Base class for ProductView and SimilarProductView
+ * They have name and id in common
+ *
+ */
 public class ProductViewBase implements Serializable {
 
 	/**

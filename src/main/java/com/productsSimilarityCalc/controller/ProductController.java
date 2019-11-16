@@ -25,6 +25,14 @@ import com.productsSimilarityCalc.util.Characteristics;
 import com.productsSimilarityCalc.util.GenericException;
 import com.productsSimilarityCalc.view.ProductView;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * 
+ * Restful Controller responsible for bringing the products and send to view
+ * OBS: Spring Boot + Spring MVC use as default the MVC design pattern
+ *
+ */
 @RestController
 public class ProductController implements Serializable {
 
@@ -39,6 +47,14 @@ public class ProductController implements Serializable {
 	@Autowired
 	private HttpSession session;
 	
+	/**
+	 * 
+	 * @return ResponseEntity<List<ProductView>>
+	 * 
+	 * This method communicates with service layer to fetch the products, check their characteristics,
+	 * save in session, mapping from a entity (json) to a view object and send to view
+	 * 
+	 */
 	@GetMapping(path = "/products", produces=MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<ProductView>> fetchProducts() {	
 		List<ProductView> products = null;
@@ -52,7 +68,7 @@ public class ProductController implements Serializable {
 			});
 			
 			session.setAttribute(ParameterEnum.PRODUCTS.getParameter(), productsEntity);
-			products = ProductMapper.mapToView(productsEntity);			
+			products = ProductMapper.getInstance().mapToView(productsEntity);			
 			
 		} catch (GenericException e) {
 			LOGGER.severe(e.getMessage());

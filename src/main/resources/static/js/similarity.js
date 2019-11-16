@@ -1,4 +1,11 @@
-$(document).ready(function() {
+$(document).ready(function() {	
+	/*
+	 * Ajax post that send the chosen product id to has the characteristcs checked and calculate
+	 * to return the three most similar products list
+	 * A table of three most similar products is build here 
+	 * If the Ajax fail, a error mesage is shown on the screen
+	 */
+	
 	$(".button-product").on("click",function(event) {		
 		var id = $(".input-product").val();
 		

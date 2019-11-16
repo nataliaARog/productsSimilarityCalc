@@ -2,6 +2,14 @@ package com.productsSimilarityCalc.enumaration;
 
 import java.util.Optional;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * 
+ * Enum containing system error messages 
+ * Enum has been chosen beacuse they are type-safety, immutable and use Single pattern as default
+ *
+ */
 public enum ErrorMessageEnum {
 	
 	ERROR_MSG_READ_FILE("Impossible to read this file!"),

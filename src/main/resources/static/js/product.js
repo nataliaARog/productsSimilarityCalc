@@ -1,4 +1,11 @@
 $(document).ready(function() {
+	/*
+	 * Ajax get that returns a list of products with id, name, tags and tagsVector (characteristcs)
+	 * A table of products and two lists of characteristcs (for the modal)  is build here
+	 * Datatable and Modal plugin are used to build the table of products and the popup wth
+	 * the characteristcs of each product
+	 * If the Ajax fail, a error mesage is shown on the screen
+	 */
 	$.ajax({
 		url: "http://localhost:8082/products", 
 		dataType: "json",
@@ -48,6 +55,7 @@ $(document).ready(function() {
 			$(".empty-th").remove();					
 		},
 		error: function(xhr) {
+			console.log(JSON.parse(xhr.responseText));
 			var msg= JSON.parse(xhr.responseText);
 			$("#error").text(msg);
 			$("#error").parent().removeClass("hidden-element");

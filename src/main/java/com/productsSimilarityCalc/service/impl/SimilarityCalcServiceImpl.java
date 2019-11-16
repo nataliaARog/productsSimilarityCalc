@@ -16,6 +16,15 @@ import com.productsSimilarityCalc.enumaration.ErrorMessageEnum;
 import com.productsSimilarityCalc.service.SimilarityCalcService;
 import com.productsSimilarityCalc.util.GenericException;
 
+/**
+ * 
+ * @author Natalia Avelino Rogerio
+ * 
+ * Implementation of Interface that provide the method's signature related to reading and checking 
+ * SimilarProductEntity
+ * It is a Service Layer of this application
+ * It contains the buisness logic - all the similarity calculation 
+ */
 @Service
 public class SimilarityCalcServiceImpl implements SimilarityCalcService {
 	
