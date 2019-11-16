@@ -1,0 +1,12 @@
+com.productsSimilarityCalc.controller
+com.productsSimilarityCalc.controller.helper
+com.productsSimilarityCalc.entity
+com.productsSimilarityCalc.enumaration
+com.productsSimilarityCalc.init
+com.productsSimilarityCalc.mapper
+com.productsSimilarityCalc.predicate
+com.productsSimilarityCalc.service
+com.productsSimilarityCalc.service.helper
+com.productsSimilarityCalc.service.impl
+com.productsSimilarityCalc.util
+com.productsSimilarityCalc.view
