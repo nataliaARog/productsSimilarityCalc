@@ -9,6 +9,6 @@ import com.productsSimilarityCalc.util.GenericException;
 public interface ProductService {
 
 	public ProductEntityList findProducts() throws GenericException;
-	public ProductEntity checkCharacteristcs(ProductEntity product,String[] characteristics) throws GenericException;
+	public ProductEntity checkCharacteristcs(ProductEntity product,String[] characteristics);
 	public ProductEntity findProduct(int id,List<ProductEntity> productsList) throws GenericException;	
 }

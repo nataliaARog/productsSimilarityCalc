@@ -1,6 +1,6 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
-
-<table id="similarityTable">
+<h1>Similarity Result</h1>
+<table id="similarityTable" class="similarity-table">
 	<thead>
     	<tr>
         	<th>Id</th>

@@ -44,7 +44,7 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
-	public ProductEntity checkCharacteristcs(ProductEntity product,String[] characteristics) throws GenericException {
+	public ProductEntity checkCharacteristcs(ProductEntity product,String[] characteristics) {
 		ProductEntity checkedProduct = product;
 		int[] tagsVector = new int[20];
 		

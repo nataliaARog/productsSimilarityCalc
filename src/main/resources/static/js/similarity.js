@@ -15,23 +15,11 @@ $(document).ready(function() {
 							"<td class='column-name'>"+data[i].name+"</td>"+
 							"<td class='column-similarity'>"+data[i].similarity+"</td>"+					
 						"</tr>"							
-					);
-				}			
+					);					
+				}	
 				
-				$("#productsTable").DataTable({
-					ordering: true
-				});				
-				
-				$("#productTableContent").addClass("hidden-element");			
-				
-				$("#similarityTable").DataTable({
-					ordering: true
-				});
-				
-				$("#similarityTable_wrapper").addClass("similarity-table");
-				$(".dataTables_length").remove();
-				$(".dataTables_filter").remove();
-				$("#similarityTable_paginate").remove();
+				$("tr").last().find("td").addClass("last-row");				
+				$("#productTableContent").addClass("hidden-element");
 				$("#similarityTableContent").removeClass("hidden-element");
 			},
 			error: function(err) {

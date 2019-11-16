@@ -1,7 +1,9 @@
 <%@ tag language="java" pageEncoding="UTF-8"%>
 
+<h1>Products List</h1>
+
 <input type="text" maxlength="4" class="input-product"></input>
-<input type="submit" value="search" class="button-product" />
+<input type="submit" value="search and calculate" class="button-product" />
 
 <table id="productsTable">
 	<thead>

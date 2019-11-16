@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.productsSimilarityCalc.entity.ProductEntity;
 import com.productsSimilarityCalc.entity.ProductEntityList;
+import com.productsSimilarityCalc.enumaration.ErrorMessageEnum;
 import com.productsSimilarityCalc.enumaration.ParameterEnum;
 import com.productsSimilarityCalc.mapper.ProductMapper;
 import com.productsSimilarityCalc.service.ProductService;
@@ -47,34 +48,21 @@ public class ProductController implements Serializable {
 			List<ProductEntity> productsEntity = productEntityList.getPoducts();
 			
 			IntStream.range(0, productsEntity.size()).forEach(i -> {				
-				defineCharacteristcsVector(productsEntity, productsEntity.get(i), i);			
+				productsEntity.set(i, productService.checkCharacteristcs(productsEntity.get(i), Characteristics.getCharacteristics()));	
 			});
 			
-			products = ProductMapper.mapToView(productsEntity);
-			session.setAttribute(ParameterEnum.PRODUCTS.getParameter(), products);
+			session.setAttribute(ParameterEnum.PRODUCTS.getParameter(), productsEntity);
+			products = ProductMapper.mapToView(productsEntity);			
 			
 		} catch (GenericException e) {
 			LOGGER.severe(e.getMessage());
 			ProductView productError = new ProductView();
-			productError.setName(e.getMessage());
+			productError.setName(ErrorMessageEnum.ERROR_MSG_READ_FILE.getErrorMessage());
 			List<ProductView> productsError = new ArrayList<>();
 			productsError.add(productError);
 			return new ResponseEntity<>(productsError,HttpStatus.BAD_REQUEST);
 		}
 		
 		return new ResponseEntity<>(products,HttpStatus.OK);
-	}
-	
-	private void defineCharacteristcsVector(List<ProductEntity> productsEntity, ProductEntity product, int i) {
-		try {
-			productsEntity.set(i, productService.checkCharacteristcs(productsEntity.get(i), Characteristics.getCharacteristics()));
-			
-		} catch (GenericException e) {
-			LOGGER.severe(e.getMessage());
-			ProductView productError = new ProductView();
-			productError.setName(e.getMessage());
-			List<ProductView> productsError = new ArrayList<>();
-			productsError.add(productError);
-		}	
 	}
 }

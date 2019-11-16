@@ -13,12 +13,7 @@ public class SimilarProductMapper {
 	
 	private SimilarProductMapper() {
 		
-	}
-	
-	public static SimilarProductView mapToView(SimilarProductEntity similarProductEntity) {
-		JMapper<SimilarProductView,SimilarProductEntity> similarProdMapperView = new JMapper<>(SimilarProductView.class,SimilarProductEntity.class);
-		return similarProdMapperView.getDestination(similarProductEntity);
-	}
+	}	
 	
 	public static List<SimilarProductView> mapToView(List<SimilarProductEntity> similarProductEntityList) {
 		List<SimilarProductView> similarProductViewList = new ArrayList<>();

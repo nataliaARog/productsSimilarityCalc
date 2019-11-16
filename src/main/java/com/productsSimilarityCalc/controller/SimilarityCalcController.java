@@ -17,13 +17,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.productsSimilarityCalc.entity.ProductEntity;
 import com.productsSimilarityCalc.entity.SimilarProductEntity;
+import com.productsSimilarityCalc.enumaration.ErrorMessageEnum;
 import com.productsSimilarityCalc.enumaration.ParameterEnum;
-import com.productsSimilarityCalc.mapper.ProductMapper;
 import com.productsSimilarityCalc.mapper.SimilarProductMapper;
 import com.productsSimilarityCalc.service.ProductService;
 import com.productsSimilarityCalc.service.SimilarityCalcService;
 import com.productsSimilarityCalc.util.GenericException;
-import com.productsSimilarityCalc.view.ProductView;
 import com.productsSimilarityCalc.view.SimilarProductView;
 
 @RestController
@@ -52,8 +51,7 @@ public class SimilarityCalcController implements Serializable {
 		List<ProductEntity> productsEntity = null;
 		
 		try {	
-			List<ProductView> products = (List<ProductView>) session.getAttribute(ParameterEnum.PRODUCTS.getParameter());
-			productsEntity = ProductMapper.mapToEntity(products);
+			productsEntity = (List<ProductEntity>) session.getAttribute(ParameterEnum.PRODUCTS.getParameter());
 			product = productService.findProduct(id,productsEntity);
 			similarProductsEntity = similarityCalcService.defineSimilarProducts(product,productsEntity);
 			similarProducts = SimilarProductMapper.mapToView(similarProductsEntity);
@@ -61,7 +59,7 @@ public class SimilarityCalcController implements Serializable {
 		} catch (GenericException e) {
 			LOGGER.severe(e.getMessage());
 			SimilarProductView similarProductError = new SimilarProductView();
-			similarProductError.setName(e.getMessage());
+			similarProductError.setName(ErrorMessageEnum.ERROR_MSG_READ_FILE.getErrorMessage());
 			List<SimilarProductView> similarProductsError = new ArrayList<>();
 			similarProductsError.add(similarProductError);
 			return new ResponseEntity<>(similarProductsError,HttpStatus.BAD_REQUEST);

@@ -15,7 +15,7 @@ public class HomeController implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	@RequestMapping(value={"/productsSimilarity/main"}, method=RequestMethod.GET)
+	@RequestMapping(value={"/productsSimilarity/index"}, method=RequestMethod.GET)
 	public ModelAndView callMain() {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.setViewName("main");
